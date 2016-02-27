@@ -1,0 +1,21 @@
+
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  # For details on connection pooling, see rails configuration guide
+  # http://guides.rubyonrails.org/configuring.html#database-pooling
+  pool: 5
+
+development:
+  <<: *default
+  database: workshop_iv_dev_development
+
+test:
+  <<: *default
+  database: workshop_iv_dev_test
+
+production:
+  <<: *default
+  database: workshop_iv_dev_production
+  username: workshop-iv-dev
+  password: <%= ENV['WORKSHOP-IV-DEV_DATABASE_PASSWORD'] %>
